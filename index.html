@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="dark" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鶴英新北芭蕾舞團 | He Ying New Taipei Ballet</title>
+<meta name="description" content="鶴英新北芭蕾舞團，成立於2001年，位於新北市板橋區。提供幼兒律動、兒童芭蕾、成人芭蕾等課程。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--ts:0.5s}
+[data-theme="dark"]{--bg1:#0a0a0f;--bg2:#0e0e16;--bg3:#14141f;--bgc:rgba(255,255,255,0.03);--bgch:rgba(255,255,255,0.07);--t1:#f0ece4;--t2:#a09a8e;--t3:#6b6560;--a1:#c4a265;--a2:#8b6db5;--a3:#d4a8c7;--ag:rgba(196,162,101,0.3);--bc:rgba(255,255,255,0.06);--ss:0 8px 32px rgba(0,0,0,0.4);--gb:rgba(255,255,255,0.04);--gbd:rgba(255,255,255,0.08);--nb:rgba(10,10,15,0.85);--ov:rgba(0,0,0,0.7)}
+[data-theme="light"]{--bg1:#faf8f5;--bg2:#f5f1ec;--bg3:#ebe5dc;--bgc:rgba(0,0,0,0.02);--bgch:rgba(0,0,0,0.05);--t1:#1a1510;--t2:#5a5248;--t3:#8a8278;--a1:#9a7d3e;--a2:#6b4d95;--a3:#a06890;--ag:rgba(154,125,62,0.15);--bc:rgba(0,0,0,0.08);--ss:0 8px 32px rgba(0,0,0,0.08);--gb:rgba(255,255,255,0.6);--gbd:rgba(0,0,0,0.08);--nb:rgba(250,248,245,0.88);--ov:rgba(0,0,0,0.8)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--a1) transparent}
+body{font-family:'Noto Serif TC','Cormorant Garamond',serif;background:var(--bg1);color:var(--t1);overflow-x:hidden;transition:background var(--ts),color var(--ts)}
+::selection{background:var(--a2);color:#fff}
+img{display:block;max-width:100%}
+.cd{width:8px;height:8px;background:var(--a1);border-radius:50%;position:fixed;pointer-events:none;z-index:99999;mix-blend-mode:difference}
+.cr{width:40px;height:40px;border:1.5px solid var(--a1);border-radius:50%;position:fixed;pointer-events:none;z-index:99998;transition:transform .15s ease-out,width .3s,height .3s;transform:translate(-50%,-50%);mix-blend-mode:difference}
+.cr.h{width:60px;height:60px;border-color:var(--a3)}
+@media(max-width:768px){.cd,.cr{display:none}}
+#pc{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.go{position:fixed;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,var(--ag),transparent 70%);pointer-events:none;z-index:1;filter:blur(40px)}
+.gr{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat}
+.pl{position:fixed;inset:0;background:var(--bg1);z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;transition:opacity .8s,visibility .8s}
+.pl.done{opacity:0;visibility:hidden;pointer-events:none}
+.plt{font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;color:var(--a1);letter-spacing:.2em}
+.plb{width:120px;height:1px;background:var(--bc);position:relative;overflow:hidden}
+.plb::after{content:'';position:absolute;left:0;top:0;height:100%;width:0;background:var(--a1);animation:lb 1.5s ease-in-out forwards}
+@keyframes lb{to{width:100%}}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 3vw;height:80px;display:flex;align-items:center;justify-content:space-between;background:var(--nb);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--bc);transition:all .4s}
+.nav.sc{height:64px;box-shadow:var(--ss)}
+.nav-logo{font-size:1.3rem;font-weight:600;letter-spacing:.15em;color:var(--t1);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo img{height:40px;width:auto}
+.nav.sc .nav-logo img{height:32px}
+.nl{display:flex;align-items:center;gap:1.8rem;list-style:none}
+.nl a{color:var(--t2);text-decoration:none;font-size:.82rem;letter-spacing:.12em;position:relative;padding:4px 0;transition:color .3s}
+.nl a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--a1);transition:width .4s cubic-bezier(.22,1,.36,1)}
+.nl a:hover{color:var(--a1)}
+.nl a:hover::after{width:100%}
+.nlb{display:inline-flex;align-items:center;gap:6px;background:#06C755;color:#fff!important;padding:8px 16px;border-radius:6px;font-size:.78rem;text-decoration:none;letter-spacing:.05em;font-weight:600;animation:lp 2s infinite}
+.nlb:hover{background:#05b34d;transform:scale(1.05)}
+.nlb::after{display:none!important}
+@keyframes lp{0%,100%{box-shadow:0 0 0 0 rgba(6,199,85,.4)}50%{box-shadow:0 0 0 8px rgba(6,199,85,0)}}
+.nc{display:flex;align-items:center;gap:10px}
+.nb{background:none;border:1px solid var(--bc);color:var(--t2);width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:all .3s;font-family:inherit}
+.nb:hover{border-color:var(--a1);color:var(--a1);transform:scale(1.08)}
+.hb{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+.hb span{display:block;width:24px;height:1.5px;background:var(--t1);transition:all .3s}
+.hb.act span:nth-child(1){transform:rotate(45deg) translate(4px,5px)}
+.hb.act span:nth-child(2){opacity:0}
+.hb.act span:nth-child(3){transform:rotate(-45deg) translate(4px,-5px)}
+@media(max-width:1000px){.hb{display:flex}.nl{position:fixed;top:0;right:-100%;width:75vw;height:100vh;flex-direction:column;justify-content:center;background:var(--bg2);transition:right .5s cubic-bezier(.22,1,.36,1);gap:2.5rem;padding:2rem;z-index:9999}.nl.open{right:0}.nl a{font-size:1.1rem}}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 30%,rgba(139,109,181,.12) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 80% 70%,rgba(196,162,101,.08) 0%,transparent 70%),var(--bg1);z-index:1}
+.hero-img{position:absolute;inset:0;z-index:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.15;filter:grayscale(.4)}
+.hln{position:absolute;inset:0;z-index:2;overflow:hidden}
+.hln .l{position:absolute;width:1px;height:100%;background:linear-gradient(180deg,transparent,var(--a1),transparent);opacity:.06;animation:hlp 8s ease-in-out infinite}
+@keyframes hlp{0%,100%{opacity:.03}50%{opacity:.1}}
+.hc{position:relative;z-index:10;text-align:center;padding:0 2rem}
+.hs{font-family:'Cormorant Garamond',serif;font-size:clamp(.8rem,1.2vw,1rem);letter-spacing:.5em;color:var(--a1);text-transform:uppercase;margin-bottom:2rem;opacity:0;animation:fu 1s .5s forwards}
+.ht{font-size:clamp(3rem,8vw,7rem);font-weight:300;line-height:1.1;margin-bottom:1rem;opacity:0;animation:fu 1.2s .8s forwards}
+.ht .ac{background:linear-gradient(135deg,var(--a1),var(--a3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
+.he{font-family:'Playfair Display',serif;font-size:clamp(1rem,2vw,1.6rem);font-style:italic;color:var(--t3);letter-spacing:.15em;margin-bottom:3rem;opacity:0;animation:fu 1.2s 1.1s forwards}
+.hbs{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu 1s 1.4s forwards}
+.hca{display:inline-flex;align-items:center;gap:12px;padding:16px 40px;border:1px solid var(--a1);color:var(--a1);text-decoration:none;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;transition:all .5s;position:relative;overflow:hidden}
+.hca::before{content:'';position:absolute;inset:0;background:var(--a1);transform:translateX(-101%);transition:transform .5s cubic-bezier(.22,1,.36,1);z-index:-1}
+.hca:hover{color:var(--bg1)}.hca:hover::before{transform:translateX(0)}
+.hca .ar{transition:transform .3s}.hca:hover .ar{transform:translateX(6px)}
+.hlb{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:#06C755;color:#fff;text-decoration:none;font-size:.9rem;letter-spacing:.1em;border-radius:8px;font-weight:600;transition:all .4s;box-shadow:0 4px 20px rgba(6,199,85,.3)}
+.hlb:hover{background:#05b34d;transform:translateY(-3px);box-shadow:0 8px 30px rgba(6,199,85,.4)}
+.hlb svg{width:22px;height:22px}
+.hero-logo{position:absolute;bottom:8rem;left:50%;transform:translateX(-50%);z-index:3;opacity:.08;width:clamp(300px,40vw,600px);animation:heroLogoIn 2s 1.5s ease-out forwards,heroLogoPulse 6s 3.5s ease-in-out infinite;opacity:0}
+@keyframes heroLogoIn{from{opacity:0;transform:translateX(-50%) scale(.8)}to{opacity:.1;transform:translateX(-50%) scale(1)}}
+@keyframes heroLogoPulse{0%,100%{opacity:.08;filter:brightness(1)}50%{opacity:.14;filter:brightness(1.3)}}
+.si{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fu 1s 2s forwards}
+.si span{font-size:.65rem;letter-spacing:.3em;color:var(--t3);text-transform:uppercase}
+.sli{width:1px;height:50px;background:linear-gradient(to bottom,var(--a1),transparent);animation:sp 2s infinite}
+@keyframes sp{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes fu{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* MARQUEE */
+.mw{overflow:hidden;border-top:1px solid var(--bc);border-bottom:1px solid var(--bc);padding:1.5rem 0;position:relative;z-index:5}
+.mq{display:flex;white-space:nowrap;animation:ms 30s linear infinite}
+.mq span{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.5rem);font-style:italic;color:var(--t3);opacity:.3;padding:0 3rem}
+.mq span::before{content:'✦';margin-right:3rem;color:var(--a1);opacity:.5}
+@keyframes ms{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{position:relative;z-index:5;padding:8rem 5vw}
+.sl2{font-family:'Cormorant Garamond',serif;font-size:.75rem;letter-spacing:.5em;text-transform:uppercase;color:var(--a1);margin-bottom:1rem}
+.st{font-size:clamp(2rem,4vw,3.5rem);font-weight:300;margin-bottom:1.5rem;line-height:1.2}
+.sd{font-size:1rem;line-height:2;color:var(--t2);max-width:700px}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/* ABOUT */
+#about{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.av{position:relative;height:500px;overflow:hidden;border-radius:4px}
+.av img{width:100%;height:100%;object-fit:cover}
+.av .fb{position:absolute;bottom:1.5rem;right:1.5rem;background:var(--gb);border:1px solid var(--gbd);backdrop-filter:blur(10px);padding:1.2rem 1.5rem;border-radius:2px;z-index:2}
+.fb .fn{font-size:2.5rem;font-weight:700;color:var(--a1);line-height:1}
+.fb .fl{font-size:.7rem;letter-spacing:.2em;color:var(--t3);text-transform:uppercase;margin-top:4px}
+.as{display:flex;gap:3rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--bc)}
+.sn{font-size:2rem;font-weight:600;color:var(--a1);font-family:'Playfair Display',serif}
+.sll{font-size:.75rem;color:var(--t3);letter-spacing:.15em;text-transform:uppercase;margin-top:4px}
+.yt-wrap{margin-top:3rem;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;border:1px solid var(--bc)}
+.yt-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+@media(max-width:900px){#about{grid-template-columns:1fr}.av{height:300px}}
+
+/* HIGHLIGHTS */
+.hls{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:4rem}
+.hlc{background:var(--bgc);border:1px solid var(--bc);padding:3rem 2.5rem;transition:all .5s;position:relative;overflow:hidden}
+.hlc::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--a1),var(--a2));transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.hlc:hover::before{transform:scaleX(1)}
+.hlc:hover{background:var(--bgch);transform:translateY(-4px);box-shadow:var(--ss)}
+.hli{font-size:2rem;margin-bottom:1.5rem}
+.hlt{font-size:1.2rem;margin-bottom:.8rem;font-weight:400}
+.hld{font-size:.85rem;line-height:1.8;color:var(--t2)}
+@media(max-width:768px){.hls{grid-template-columns:1fr}}
+
+/* LINE BANNER */
+.lcb{position:relative;z-index:5;background:linear-gradient(135deg,#06C755,#04a847);padding:3rem 5vw;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;text-align:center}
+.lcb h3{color:#fff;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:500}
+.lcb a{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#06C755;padding:14px 32px;border-radius:50px;font-size:.95rem;font-weight:700;text-decoration:none;letter-spacing:.05em;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.15)}
+.lcb a:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 25px rgba(0,0,0,.2)}
+.lsvg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
+
+/* PERFORMANCES */
+.ps{background:var(--bg2);overflow:hidden}
+.pcon{margin-top:4rem;position:relative}
+.ptr{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;padding:2rem 0 4rem;cursor:grab}
+.ptr::-webkit-scrollbar{display:none}
+.ptr.grab{cursor:grabbing}
+.pcd{flex:0 0 320px;scroll-snap-align:center;margin:0 1rem;perspective:1000px}
+.pci{background:var(--bgc);border:1px solid var(--bc);transition:all .6s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden;height:420px;display:flex;flex-direction:column}
+.pcd:hover .pci{border-color:var(--a1);transform:translateY(-8px) scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,.3),0 0 40px var(--ag)}
+.pct{height:200px;position:relative;overflow:hidden}
+.pct img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pcd:hover .pct img{transform:scale(1.08)}
+.pct::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(0,0,0,.6));z-index:1}
+.pyb{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:#fff;opacity:.7;position:absolute;z-index:2;bottom:.5rem;right:1rem;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.pcb{padding:1.8rem;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.pdt{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:var(--a1);letter-spacing:.2em;margin-bottom:.5rem}
+.pnm{font-size:1.4rem;font-weight:500;margin-bottom:.5rem;line-height:1.3}
+.pvn{font-size:.8rem;color:var(--t3);line-height:1.5}
+.ptg{display:inline-block;margin-top:.8rem;padding:4px 12px;font-size:.65rem;letter-spacing:.15em;border:1px solid var(--a2);color:var(--a2);border-radius:20px;align-self:flex-start}
+.pnav{display:flex;gap:1rem;margin-top:2rem;justify-content:center}
+.pnav button{width:52px;height:52px;border-radius:50%;border:1px solid var(--bc);background:var(--gb);color:var(--t1);font-size:1.2rem;cursor:pointer;transition:all .3s;backdrop-filter:blur(10px);font-family:inherit}
+.pnav button:hover{border-color:var(--a1);color:var(--a1);transform:scale(1.1)}
+.ppg{width:200px;height:2px;background:var(--bc);margin:1.5rem auto 0;border-radius:2px;overflow:hidden}
+.ppb{height:100%;background:var(--a1);transition:width .3s;width:5%}
+
+/* TEACHERS */
+.tg{display:grid;grid-template-columns:repeat(2,1fr);gap:3rem;margin-top:4rem;max-width:900px}
+.tc{background:var(--bgc);border:1px solid var(--bc);overflow:hidden;transition:all .5s}
+.tc:hover{border-color:var(--a1);box-shadow:var(--ss)}
+.tc::after{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--a2),var(--a1),var(--a3))}
+.tc-img{width:100%;overflow:hidden}
+.tc-img img{width:100%;height:auto;display:block;transition:transform .6s}
+.tc:hover .tc-img img{transform:scale(1.05)}
+.tc-body{padding:2rem 2.5rem 2.5rem}
+.tn{font-size:1.4rem;margin-bottom:.3rem}
+.tr{font-size:.8rem;color:var(--a1);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem}
+.tb{font-size:.85rem;line-height:1.8;color:var(--t2)}
+@media(max-width:768px){.tg{grid-template-columns:1fr}}
+
+/* COURSES */
+.course-tabs{display:flex;gap:1rem;margin-top:3rem;margin-bottom:2rem;flex-wrap:wrap}
+.course-tab{padding:10px 24px;border:1px solid var(--bc);background:none;color:var(--t2);font-family:inherit;font-size:.85rem;letter-spacing:.1em;cursor:pointer;transition:all .3s;border-radius:2px}
+.course-tab.active{background:var(--a1);color:var(--bg1);border-color:var(--a1)}
+.course-tab:hover:not(.active){border-color:var(--a1);color:var(--a1)}
+.course-group{display:none}
+.course-group.active{display:block}
+.course-list{display:flex;flex-direction:column;gap:1.5rem}
+.course-item{display:grid;grid-template-columns:280px 1fr;gap:0;background:var(--bgc);border:1px solid var(--bc);overflow:hidden;transition:all .4s;border-radius:2px}
+.course-item:hover{border-color:var(--a1);box-shadow:var(--ss);transform:translateX(4px)}
+.course-img{height:100%;min-height:160px;overflow:hidden}
+.course-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.course-item:hover .course-img img{transform:scale(1.05)}
+.course-info{padding:1.5rem 2rem;display:flex;flex-direction:column;justify-content:center}
+.course-name{font-size:1.2rem;margin-bottom:.6rem;font-weight:500}
+.course-time{font-size:.82rem;color:var(--a2);margin-bottom:.3rem;letter-spacing:.05em}
+.course-teacher{font-size:.78rem;color:var(--t3);letter-spacing:.1em}
+.course-phone{margin-top:2rem;font-size:.9rem;color:var(--t2);padding:1.5rem;border:1px solid var(--bc);border-radius:4px;background:var(--bgc)}
+.course-phone a{color:var(--a1);text-decoration:none;font-weight:600}
+@media(max-width:768px){.course-item{grid-template-columns:1fr}.course-img{height:180px}}
+
+/* GALLERY */
+.gal-tabs{display:flex;gap:1rem;margin-top:2rem;margin-bottom:2rem}
+.gal-tab{padding:8px 20px;border:1px solid var(--bc);background:none;color:var(--t2);font-family:inherit;font-size:.82rem;letter-spacing:.1em;cursor:pointer;transition:all .3s;border-radius:2px}
+.gal-tab.active{background:var(--a1);color:var(--bg1);border-color:var(--a1)}
+.gal-tab:hover:not(.active){border-color:var(--a1);color:var(--a1)}
+.gal-grid{columns:4 240px;gap:1rem}
+.gal-grid .gi{break-inside:avoid;margin-bottom:1rem;overflow:hidden;border-radius:2px;cursor:pointer;position:relative;border:1px solid var(--bc);transition:all .4s}
+.gal-grid .gi:hover{border-color:var(--a1);box-shadow:var(--ss)}
+.gal-grid .gi img{width:100%;display:block;transition:transform .5s}
+.gal-grid .gi:hover img{transform:scale(1.05)}
+.gal-grid .gi::after{content:'⤢';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);font-size:2rem;color:#fff;opacity:0;transition:all .3s;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.gal-grid .gi:hover::after{transform:translate(-50%,-50%) scale(1);opacity:1}
+/* Lightbox */
+.lb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100000;display:none;align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
+.lb-overlay.active{display:flex}
+.lb-overlay img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px;box-shadow:0 0 60px rgba(0,0,0,.5)}
+.lb-close{position:absolute;top:2rem;right:2rem;font-size:2rem;color:#fff;cursor:pointer;background:none;border:none;opacity:.7;transition:opacity .3s}
+.lb-close:hover{opacity:1}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-size:2.5rem;color:#fff;cursor:pointer;background:none;border:none;opacity:.5;transition:opacity .3s;padding:1rem}
+.lb-nav:hover{opacity:1}
+.lb-prev{left:1rem}
+.lb-next{right:1rem}
+@media(max-width:768px){.gal-grid{columns:2}}
+
+/* REVIEWS */
+.rsc{background:var(--bg2);overflow:hidden}
+.rcon{margin-top:3rem;position:relative}
+.rsl{display:flex;gap:1.5rem;animation:rscr 120s linear infinite;width:max-content}
+.rsl:hover{animation-play-state:paused}
+.rcd{flex:0 0 340px;background:rgba(255,255,255,.02);border:1px solid var(--bc);padding:2rem;border-radius:4px;transition:all .4s}
+[data-theme="light"] .rcd{background:rgba(0,0,0,.02)}
+.rcd:hover{border-color:var(--a1);transform:translateY(-4px);box-shadow:var(--ss)}
+.rst{color:#f5c518;font-size:.9rem;letter-spacing:2px;margin-bottom:.8rem}
+.rtx{font-size:.88rem;line-height:1.8;color:var(--t2);margin-bottom:1.2rem;font-style:italic}
+.rau{display:flex;align-items:center;gap:10px}
+.rav{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--a2),var(--a1));display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#fff;font-weight:600}
+.ran{font-size:.82rem;font-weight:500}
+.rdt{font-size:.68rem;color:var(--t3)}
+@keyframes rscr{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.rsts{display:flex;gap:3rem;margin-bottom:2rem;align-items:center;flex-wrap:wrap}
+.rbn{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:var(--a1);line-height:1}
+.rbs{color:#f5c518;font-size:1.3rem;letter-spacing:3px}
+.rbc{font-size:.85rem;color:var(--t3);margin-top:2px}
+
+/* FAQ */
+.faq-list{max-width:800px;margin-top:3rem;display:flex;flex-direction:column;gap:1px}
+.faq-item{border:1px solid var(--bc);background:var(--bgc);transition:all .4s;overflow:hidden}
+.faq-item:first-child{border-radius:4px 4px 0 0}
+.faq-item:last-child{border-radius:0 0 4px 4px}
+.faq-item.active{border-color:var(--a1);background:var(--bgch)}
+.faq-q{width:100%;padding:1.8rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;background:none;border:none;color:var(--t1);font-family:inherit;font-size:1.05rem;font-weight:400;text-align:left;cursor:pointer;letter-spacing:.05em;transition:color .3s}
+.faq-q:hover{color:var(--a1)}
+.faq-icon{flex-shrink:0;width:28px;height:28px;border:1px solid var(--bc);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--a1);transition:all .4s cubic-bezier(.22,1,.36,1)}
+.faq-item.active .faq-icon{transform:rotate(45deg);border-color:var(--a1);background:var(--a1);color:var(--bg1)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.22,1,.36,1),padding .4s}
+.faq-a-inner{padding:0 2rem 1.8rem;font-size:.9rem;line-height:2;color:var(--t2);border-top:1px solid var(--bc)}
+.faq-a-inner p{padding-top:1.2rem}
+
+/* CONTACT */
+.cog{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+.cil{display:flex;flex-direction:column;gap:2rem}
+.ci{display:flex;gap:1rem;align-items:flex-start}
+.cic{font-size:1.3rem;color:var(--a1);flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid var(--bc);border-radius:50%}
+.ci h4{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--t3);margin-bottom:4px}
+.ci p{font-size:1rem;color:var(--t1)}
+.ci a{color:var(--a1);text-decoration:none;transition:color .3s}
+.ci a:hover{color:var(--a3)}
+.clc{background:linear-gradient(135deg,rgba(6,199,85,.08),rgba(6,199,85,.02));border:1px solid rgba(6,199,85,.2);border-radius:12px;padding:3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.5rem;transition:all .4s}
+.clc:hover{border-color:rgba(6,199,85,.5);box-shadow:0 8px 30px rgba(6,199,85,.1)}
+.clc h3{font-size:1.3rem;font-weight:400}
+.clc p{font-size:.85rem;color:var(--t2);line-height:1.6}
+.blb{display:inline-flex;align-items:center;gap:10px;background:#06C755;color:#fff;padding:16px 40px;border-radius:50px;font-size:1rem;font-weight:700;text-decoration:none;letter-spacing:.05em;transition:all .4s;box-shadow:0 4px 20px rgba(6,199,85,.3)}
+.blb:hover{background:#05b34d;transform:translateY(-3px);box-shadow:0 8px 30px rgba(6,199,85,.4)}
+@media(max-width:768px){.cog{grid-template-columns:1fr}}
+
+/* FOOTER */
+.ft{position:relative;z-index:5;border-top:1px solid var(--bc);padding:3rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fc{font-size:.75rem;color:var(--t3);letter-spacing:.1em}
+.fls{display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+.fls a{font-size:.75rem;color:var(--t3);text-decoration:none;letter-spacing:.1em;transition:color .3s}
+.fls a:hover{color:var(--a1)}
+.fln{display:inline-flex;align-items:center;gap:5px;background:#06C755;color:#fff;padding:6px 14px;border-radius:4px;font-size:.7rem;text-decoration:none;font-weight:600;transition:all .3s}
+.fln:hover{background:#05b34d}
+
+/* FLOATING */
+.fll{position:fixed;bottom:2rem;right:2rem;z-index:1000;display:flex;align-items:center;gap:8px;background:#06C755;color:#fff;padding:14px 22px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;box-shadow:0 4px 20px rgba(6,199,85,.4);transition:all .4s;animation:flb 3s ease-in-out infinite}
+.fll:hover{transform:scale(1.08);box-shadow:0 8px 30px rgba(6,199,85,.5)}
+.fll svg{width:24px;height:24px}
+@keyframes flb{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.btt{position:fixed;bottom:2rem;left:2rem;width:48px;height:48px;background:var(--gb);border:1px solid var(--gbd);backdrop-filter:blur(10px);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--a1);font-size:1.2rem;cursor:pointer;z-index:100;opacity:0;transform:translateY(20px);transition:all .3s;pointer-events:none}
+.btt.vis{opacity:1;transform:translateY(0);pointer-events:all}
+.btt:hover{background:var(--a1);color:var(--bg1)}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="pl" id="pl"><div class="plt">鶴英</div><div class="plb"></div></div>
+<div class="gr"></div>
+<div class="cd" id="cd"></div>
+<div class="cr" id="cr"></div>
+<div class="go" id="go"></div>
+<canvas id="pc"></canvas>
+
+<!-- FLOATING LINE -->
+<a href="https://lin.ee/Y4DDKji" target="_blank" class="fll" aria-label="LINE預約">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596a.629.629 0 01-.709-.219l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595a.64.64 0 01.689.221l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+<span data-zh="立即預約" data-en="Book Now">立即預約</span>
+</a>
+
+<!-- NAV -->
+<nav class="nav" id="mn">
+<a href="#" class="nav-logo"><img src="images/logo.jpg" alt="鶴英芭蕾"><span data-zh="鶴英芭蕾" data-en="HE YING">鶴英芭蕾</span></a>
+<ul class="nl" id="nl">
+<li><a href="#about" data-zh="關於我們" data-en="About">關於我們</a></li>
+<li><a href="#perf" data-zh="演出紀錄" data-en="Performances">演出紀錄</a></li>
+<li><a href="#teach" data-zh="專業師資" data-en="Faculty">專業師資</a></li>
+<li><a href="#courses" data-zh="課程介紹" data-en="Courses">課程介紹</a></li>
+<li><a href="#gallery" data-zh="照片集錦" data-en="Gallery">照片集錦</a></li>
+<li><a href="#rev" data-zh="學員好評" data-en="Reviews">學員好評</a></li>
+<li><a href="#faq" data-zh="常見問題" data-en="FAQ">常見問題</a></li>
+<li><a href="#contact" data-zh="聯絡我們" data-en="Contact">聯絡我們</a></li>
+<li><a href="https://lin.ee/Y4DDKji" target="_blank" class="nlb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg> LINE 預約</a></li>
+</ul>
+<div class="nc">
+<button class="nb" id="lb" title="切換語言">EN</button>
+<button class="nb" id="tb" title="切換主題">☽</button>
+<button class="hb" id="hb" aria-label="選單"><span></span><span></span><span></span></button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-img"><img src="images/stage-06.jpg" alt="鶴英芭蕾舞團演出" loading="eager"></div>
+<div class="hbg"></div>
+<div class="hln"><div class="l" style="left:10%"></div><div class="l" style="left:25%;animation-delay:2s"></div><div class="l" style="left:50%;animation-delay:4s"></div><div class="l" style="left:75%;animation-delay:1s"></div><div class="l" style="left:90%;animation-delay:3s"></div></div>
+<div class="hc">
+<p class="hs" data-zh="Est. 2001 · 新北市板橋區" data-en="Est. 2001 · Banqiao, New Taipei">Est. 2001 · 新北市板橋區</p>
+<h1 class="ht"><span data-zh="鶴英" data-en="He Ying">鶴英</span><br><span class="ac" data-zh="新北芭蕾舞團" data-en="New Taipei Ballet">新北芭蕾舞團</span></h1>
+<p class="he">Where Classical Ballet Meets Taiwanese Soul</p>
+<div class="hbs">
+<a href="#about" class="hca"><span data-zh="探索更多" data-en="Discover More">探索更多</span><span class="ar">→</span></a>
+<a href="https://lin.ee/Y4DDKji" target="_blank" class="hlb">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+<span data-zh="加 LINE 立即預約" data-en="Book via LINE">加 LINE 立即預約</span>
+</a>
+</div>
+</div>
+<div class="si"><span>Scroll</span><div class="sli"></div></div>
+<img src="images/logo.jpg" alt="" class="hero-logo">
+</section>
+
+<!-- MARQUEE -->
+<div class="mw"><div class="mq"><span>Swan Lake</span><span>胡桃鉗</span><span>Don Quixote</span><span>柯碧莉亞</span><span>Coppélia</span><span>園丁的女兒</span><span>La Fille Mal Gardée</span><span>卡門</span><span>Swan Lake</span><span>胡桃鉗</span><span>Don Quixote</span><span>柯碧莉亞</span><span>Coppélia</span><span>園丁的女兒</span><span>La Fille Mal Gardée</span><span>卡門</span></div></div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="av rv">
+<img src="images/stage-15.jpg" alt="鶴英芭蕾演出" loading="lazy">
+<div class="fb"><div class="fn">25+</div><div class="fl" data-zh="年舞蹈歷程" data-en="Years of Dance">年舞蹈歷程</div></div>
+</div>
+<div class="rv" style="transition-delay:.2s">
+<div class="sl2" data-zh="關於鶴英" data-en="About Us">關於鶴英</div>
+<h2 class="st" data-zh="以芭蕾之美<br>觸動每一個靈魂" data-en="Touching Every Soul<br>Through Ballet's Beauty">以芭蕾之美<br>觸動每一個靈魂</h2>
+<p class="sd" data-zh="「鶴英新北芭蕾舞團」為立案於新北市之古典芭蕾舞團。團長陳濰翎創團初衷即是有鑒於台灣古典芭蕾藝術仍為小眾藝術之不均衡發展狀況，並在發自對古典芭蕾的熱情與執著下，期盼將古典芭蕾舞的奧美推廣給更多普羅民眾，同時也提供台灣古典芭蕾專業舞者一個能精進舞藝的正式舞台。" data-en="He Ying New Taipei Ballet is a classical ballet company registered in New Taipei City. Founded by Director Chen Wei-Ling, driven by passion for classical ballet and the desire to bring this art form to a wider Taiwanese audience while providing professional dancers a stage to refine their craft.">「鶴英新北芭蕾舞團」為立案於新北市之古典芭蕾舞團。團長陳濰翎創團初衷即是有鑒於台灣古典芭蕾藝術仍為小眾藝術之不均衡發展狀況，並在發自對古典芭蕾的熱情與執著下，期盼將古典芭蕾舞的奧美推廣給更多普羅民眾，同時也提供台灣古典芭蕾專業舞者一個能精進舞藝的正式舞台。</p>
+<div class="as">
+<div><div class="sn" data-count="6">0</div><div class="sll" data-zh="年傑出團隊" data-en="Years Outstanding">年傑出團隊</div></div>
+<div><div class="sn" data-count="20">0</div><div class="sll" data-zh="場年度公演" data-en="Annual Shows">場年度公演</div></div>
+<div><div class="sn" data-count="1999">0</div><div class="sll" data-zh="年創立" data-en="Founded">年創立</div></div>
+</div>
+<div class="yt-wrap rv" style="transition-delay:.4s">
+<video controls playsinline poster="images/stage-06.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover">
+<source src="images/video-01.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section style="padding-top:0">
+<div class="hls">
+<div class="hlc rv"><div class="hli">🏆</div><h3 class="hlt" data-zh="新北市傑出演藝團隊" data-en="Outstanding Performing Group">新北市傑出演藝團隊</h3><p class="hld" data-zh="連續六年（2009-2014）榮獲新北市文化局肯定。" data-en="Recognized by New Taipei Cultural Affairs for six consecutive years (2009-2014).">連續六年（2009-2014）榮獲新北市文化局肯定。</p></div>
+<div class="hlc rv" style="transition-delay:.15s"><div class="hli">🎭</div><h3 class="hlt" data-zh="專業培訓與社區深耕" data-en="Training & Community">專業培訓與社區深耕</h3><p class="hld" data-zh="透過嚴格甄選與紮實培訓，有效深耕芭蕾藝術。" data-en="Deepening ballet culture through rigorous selection and training.">透過嚴格甄選與紮實培訓，有效深耕芭蕾藝術。</p></div>
+<div class="hlc rv" style="transition-delay:.3s"><div class="hli">🎓</div><h3 class="hlt" data-zh="教育推廣" data-en="Education Outreach">教育推廣</h3><p class="hld" data-zh="招收3歲至成人學員，培養了許多優秀學生。" data-en="Enrolling ages 3 to adults, nurturing many outstanding students.">招收3歲至成人學員，培養了許多優秀學生。</p></div>
+</div>
+</section>
+
+<!-- LINE BANNER 1 -->
+<div class="lcb"><h3 data-zh="🎀 想讓孩子體驗芭蕾的優雅？立即預約免費試跳！" data-en="🎀 Let your child experience ballet's elegance — book a free trial!">🎀 想讓孩子體驗芭蕾的優雅？立即預約免費試跳！</h3><a href="https://lin.ee/Y4DDKji" target="_blank"><svg class="lsvg" viewBox="0 0 24 24"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg><span data-zh="加入 LINE 預約" data-en="Add LINE to Book">加入 LINE 預約</span></a></div>
+
+<!-- PERFORMANCES -->
+<section id="perf" class="ps">
+<div class="rv"><div class="sl2" data-zh="演出紀錄" data-en="Performances">演出紀錄</div><h2 class="st" data-zh="舞台上的每一個瞬間" data-en="Every Moment on Stage">舞台上的每一個瞬間</h2><p class="sd" data-zh="← 左右滑動探索精彩演出紀錄 →" data-en="← Swipe to explore performances →">← 左右滑動探索精彩演出紀錄 →</p></div>
+<div class="pcon"><div class="ptr" id="pt"></div><div class="pnav"><button id="pp">←</button><button id="pn">→</button></div><div class="ppg"><div class="ppb" id="pb"></div></div></div>
+</section>
+
+<!-- TEACHERS -->
+<section id="teach">
+<div class="rv"><div class="sl2" data-zh="專業師資" data-en="Faculty">專業師資</div><h2 class="st" data-zh="以專業引領<br>每一個舞步" data-en="Guiding Every Step<br>With Expertise">以專業引領<br>每一個舞步</h2></div>
+<div class="tg">
+<div class="tc rv">
+<div class="tc-img"><img src="images/chen-wei-ling.jpg" alt="陳濰翎老師" loading="lazy"></div>
+<div class="tc-body">
+<h3 class="tn" data-zh="陳濰翎" data-en="Chen Wei-Ling">陳濰翎</h3>
+<div class="tr" data-zh="創辦人 / 藝術總監" data-en="Founder / Artistic Director">創辦人 / 藝術總監</div>
+<p class="tb" data-zh="前香港芭蕾舞團團員。1999年成立鶴英舞蹈技藝短期補習班，2001年成立鶴英新北芭蕾舞團。長年致力於古典芭蕾教育與推廣，培養眾多優秀學生進入各級舞蹈班就讀。" data-en="Former Hong Kong Ballet member. Founded the dance school in 1999 and the ballet company in 2001. Dedicated to classical ballet education, nurturing many students into professional dance programs.">前香港芭蕾舞團團員。1999年成立鶴英舞蹈技藝短期補習班，2001年成立鶴英新北芭蕾舞團。長年致力於古典芭蕾教育與推廣，培養眾多優秀學生進入各級舞蹈班就讀。</p>
+</div>
+</div>
+<div class="tc rv" style="transition-delay:.15s">
+<div class="tc-img"><img src="images/li-wan-rong.jpg" alt="李宛蓉老師" loading="lazy"></div>
+<div class="tc-body">
+<h3 class="tn" data-zh="李宛蓉" data-en="Li Wan-Rong">李宛蓉</h3>
+<div class="tr" data-zh="舞蹈教師" data-en="Dance Instructor">舞蹈教師</div>
+<p class="tb" data-zh="團長之女，自幼學習古典芭蕾，承襲母親對芭蕾的熱情與專業。現任鶴英舞蹈團專任教師，負責兒童與成人芭蕾課程教學。" data-en="Director's daughter, trained in classical ballet since childhood. Currently teaches children's and adult ballet classes at He Ying.">團長之女，自幼學習古典芭蕾，承襲母親對芭蕾的熱情與專業。現任鶴英舞蹈團專任教師，負責兒童與成人芭蕾課程教學。</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- COURSES -->
+<section id="courses" style="background:var(--bg2)">
+<div class="rv">
+<div class="sl2" data-zh="課程介紹" data-en="Courses">課程介紹</div>
+<h2 class="st" data-zh="從啟蒙到專業" data-en="From Beginner to Professional">從啟蒙到專業</h2>
+<p class="sd" data-zh="2025年7月—2026年6月課表｜課程諮詢專線：" data-en="Jul 2025 — Jun 2026 Schedule | Inquiries: ">2025年7月—2026年6月課表｜課程諮詢專線：<a href="tel:02-2969-9257" style="color:var(--a1)">02-2969-9257</a> <span data-zh="陳老師" data-en="Teacher Chen">陳老師</span></p>
+</div>
+<div class="course-tabs rv">
+<button class="course-tab active" data-tab="kids" data-zh="兒童 / 青少年課程" data-en="Youth Courses">兒童 / 青少年課程</button>
+<button class="course-tab" data-tab="adult" data-zh="成人課程" data-en="Adult Courses">成人課程</button>
+</div>
+<div class="course-group active" id="cg-kids">
+<div class="course-list">
+<div class="course-item rv"><div class="course-img"><img src="images/class-01.jpg" alt="幼兒律動" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="幼兒律動" data-en="Toddler Movement">幼兒律動</div><div class="course-time" data-zh="週二 18:30-19:30 / 週五 18:30-19:30" data-en="Tue 18:30-19:30 / Fri 18:30-19:30">週二 18:30-19:30 / 週五 18:30-19:30</div><div class="course-teacher" data-zh="授課老師：李宛蓉" data-en="Instructor: Li Wan-Rong">授課老師：李宛蓉</div></div></div>
+<div class="course-item rv" style="transition-delay:.05s"><div class="course-img"><img src="images/class-04.jpg" alt="一級芭蕾" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="一級芭蕾" data-en="Level 1 Ballet">一級芭蕾</div><div class="course-time" data-zh="週一 16:30-18:00" data-en="Mon 16:30-18:00">週一 16:30-18:00</div><div class="course-teacher" data-zh="授課老師：李宛蓉" data-en="Instructor: Li Wan-Rong">授課老師：李宛蓉</div></div></div>
+<div class="course-item rv" style="transition-delay:.1s"><div class="course-img"><img src="images/class-13.jpg" alt="入門芭蕾" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="入門芭蕾" data-en="Beginner Ballet">入門芭蕾</div><div class="course-time" data-zh="週三 17:30-19:00" data-en="Wed 17:30-19:00">週三 17:30-19:00</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+<div class="course-item rv" style="transition-delay:.15s"><div class="course-img"><img src="images/class-02.jpg" alt="二三級芭蕾" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="二三級芭蕾" data-en="Level 2-3 Ballet">二三級芭蕾</div><div class="course-time" data-zh="週六 17:00-18:30" data-en="Sat 17:00-18:30">週六 17:00-18:30</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+<div class="course-item rv" style="transition-delay:.2s"><div class="course-img"><img src="images/stage-12.jpg" alt="一級民族" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="一級民族" data-en="Level 1 Folk Dance">一級民族</div><div class="course-time" data-zh="週四 16:30-18:00" data-en="Thu 16:30-18:00">週四 16:30-18:00</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+<div class="course-item rv" style="transition-delay:.25s"><div class="course-img"><img src="images/stage-08.jpg" alt="二三級民族" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="二三級民族" data-en="Level 2-3 Folk Dance">二三級民族</div><div class="course-time" data-zh="週二 17:00-18:30" data-en="Tue 17:00-18:30">週二 17:00-18:30</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+<div class="course-item rv" style="transition-delay:.3s"><div class="course-img"><img src="images/stage-20.jpg" alt="五級民族" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="五級民族" data-en="Level 5 Folk Dance">五級民族</div><div class="course-time" data-zh="週二 19:30-20:30" data-en="Tue 19:30-20:30">週二 19:30-20:30</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+<div class="course-item rv" style="transition-delay:.35s"><div class="course-img"><img src="images/stage-07.jpg" alt="入門民族" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="入門民族" data-en="Beginner Folk Dance">入門民族</div><div class="course-time" data-zh="週一 18:30-20:00" data-en="Mon 18:30-20:00">週一 18:30-20:00</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+<div class="course-item rv" style="transition-delay:.4s"><div class="course-img"><img src="images/stage-03.jpg" alt="比賽排練" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="比賽排練" data-en="Competition Rehearsal">比賽排練</div><div class="course-time" data-zh="週四 19:00-20:30 / 週六 11:00-12:00" data-en="Thu 19:00-20:30 / Sat 11:00-12:00">週四 19:00-20:30 / 週六 11:00-12:00</div><div class="course-teacher" data-zh="授課老師：陳濰翎 / 陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎 / 陳濰翎</div></div></div>
+<div class="course-item rv" style="transition-delay:.45s"><div class="course-img"><img src="images/stage-14.jpg" alt="芭蕾一對一" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="芭蕾一對一" data-en="Private Ballet Lesson">芭蕾一對一</div><div class="course-time" data-zh="週三 19:10-20:40" data-en="Wed 19:10-20:40">週三 19:10-20:40</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+<div class="course-item rv" style="transition-delay:.5s"><div class="course-img"><img src="images/class-05.jpg" alt="芭蕾二對一" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="芭蕾二對一" data-en="Semi-Private Ballet">芭蕾二對一</div><div class="course-time" data-zh="週四 18:00-19:30" data-en="Thu 18:00-19:30">週四 18:00-19:30</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+
+</div>
+</div>
+<div class="course-group" id="cg-adult">
+<div class="course-list">
+<div class="course-item rv"><div class="course-img"><img src="images/class-03.jpg" alt="成人纖體芭蕾" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="成人纖體芭蕾" data-en="Adult Body-Shaping Ballet">成人纖體芭蕾</div><div class="course-time" data-zh="週一 20:00-21:30 / 週四 9:30-11:00" data-en="Mon 20:00-21:30 / Thu 9:30-11:00">週一 20:00-21:30 / 週四 9:30-11:00</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+<div class="course-item rv" style="transition-delay:.1s"><div class="course-img"><img src="images/stage-09.jpg" alt="成人硬鞋課" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="成人硬鞋課" data-en="Adult Pointe Class">成人硬鞋課</div><div class="course-time" data-zh="週五 9:30-11:00" data-en="Fri 9:30-11:00">週五 9:30-11:00</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+<div class="course-item rv" style="transition-delay:.2s"><div class="course-img"><img src="images/class-08.jpg" alt="成人瑜珈" loading="lazy"></div><div class="course-info"><div class="course-name" data-zh="成人瑜珈" data-en="Adult Yoga">成人瑜珈</div><div class="course-time" data-zh="週五 19:50-20:50" data-en="Fri 19:50-20:50">週五 19:50-20:50</div><div class="course-teacher" data-zh="授課老師：陳濰翎" data-en="Instructor: Chen Wei-Ling">授課老師：陳濰翎</div></div></div>
+</div>
+</div>
+<div class="course-phone rv" style="transition-delay:.3s;margin-top:2rem">
+<span data-zh="📞 課程諮詢：" data-en="📞 Inquiries: ">📞 課程諮詢：</span><a href="tel:02-2969-9257">02-2969-9257</a> <span data-zh="陳老師" data-en="Teacher Chen">陳老師</span><br>
+<span data-zh="歡迎預約試上｜教室對外租借（週二 20:40-21:40 瑜珈）" data-en="Free trial classes available | Studio rental available (Tue 20:40-21:40 Yoga)">歡迎預約試上｜教室對外租借（週二 20:40-21:40 瑜珈）</span><br><br>
+<a href="https://lin.ee/Y4DDKji" target="_blank" style="color:#06C755;font-weight:600;text-decoration:underline" data-zh="👉 加 LINE 立即預約課程" data-en="👉 Add LINE to book classes">👉 加 LINE 立即預約課程</a>
+</div>
+</section>
+
+<!-- LINE BANNER 2 -->
+<div class="lcb"><h3 data-zh="💬 任何課程問題，LINE 我們最快！" data-en="💬 Got questions? LINE us for the fastest response!">💬 任何課程問題，LINE 我們最快！</h3><a href="https://lin.ee/Y4DDKji" target="_blank"><svg class="lsvg" viewBox="0 0 24 24"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg><span data-zh="LINE 我們" data-en="LINE Us">LINE 我們</span></a></div>
+
+<!-- GALLERY -->
+<section id="gallery">
+<div class="rv"><div class="sl2" data-zh="照片集錦" data-en="Gallery">照片集錦</div><h2 class="st" data-zh="精彩瞬間" data-en="Captured Moments">精彩瞬間</h2></div>
+<div class="gal-tabs rv">
+<button class="gal-tab active" data-filter="all" data-zh="全部" data-en="All">全部</button>
+<button class="gal-tab" data-filter="stage" data-zh="舞台演出" data-en="Stage">舞台演出</button>
+<button class="gal-tab" data-filter="class" data-zh="課堂風景" data-en="Class">課堂風景</button>
+<button class="gal-tab" data-filter="event" data-zh="活動花絮" data-en="Events">活動花絮</button>
+<button class="gal-tab" data-filter="studio" data-zh="教室環境" data-en="Studio">教室環境</button>
+</div>
+<div class="gal-grid rv" id="galGrid"></div>
+</section>
+
+<!-- REVIEWS -->
+<section id="rev" class="rsc">
+<div class="rv">
+<div class="sl2" data-zh="學員好評" data-en="Reviews">學員好評</div>
+<h2 class="st" data-zh="來自家長與學員的心聲" data-en="What Parents & Students Say">來自家長與學員的心聲</h2>
+<div class="rsts">
+<div class="rbn">5.0</div>
+<div><div class="rbs">★★★★★</div><div class="rbc" data-zh="超過 120 則五星好評" data-en="120+ Five-Star Reviews">超過 120 則五星好評</div></div>
+</div>
+</div>
+<div class="rcon"><div class="rsl" id="rs"></div></div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--bg2)">
+<div class="rv"><div class="sl2" data-zh="常見問題" data-en="FAQ">常見問題</div><h2 class="st" data-zh="您可能想知道的事" data-en="Things You May Wonder">您可能想知道的事</h2></div>
+<div class="faq-list rv" style="transition-delay:.15s">
+
+<div class="faq-item">
+<button class="faq-q" data-zh="幾歲可以開始學芭蕾？" data-en="What age can children start ballet?">幾歲可以開始學芭蕾？<span class="faq-icon">+</span></button>
+<div class="faq-a"><div class="faq-a-inner"><p data-zh="我們招收滿 3 歲以上的小朋友。3–5 歲的孩子可以先從「幼兒律動」課程開始，透過音樂與遊戲培養節奏感與肢體協調，為日後的芭蕾學習打下基礎。" data-en="We accept children from age 3. Kids aged 3–5 can start with our Toddler Movement class, developing rhythm and coordination through music and play — a perfect foundation for ballet.">我們招收滿 3 歲以上的小朋友。3–5 歲的孩子可以先從「幼兒律動」課程開始，透過音樂與遊戲培養節奏感與肢體協調，為日後的芭蕾學習打下基礎。</p></div></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" data-zh="沒有基礎可以報名嗎？" data-en="Can I join with no experience?">沒有基礎可以報名嗎？<span class="faq-icon">+</span></button>
+<div class="faq-a"><div class="faq-a-inner"><p data-zh="當然可以！無論是兒童或成人，我們都有專為零基礎學員設計的入門課程。老師會從最基本的姿態與動作開始教起，循序漸進，完全不用擔心跟不上。" data-en="Absolutely! We offer beginner courses for both children and adults. Our teachers start from the very basics — posture, alignment, and foundational movements — so there's no need to worry about keeping up.">當然可以！無論是兒童或成人，我們都有專為零基礎學員設計的入門課程。老師會從最基本的姿態與動作開始教起，循序漸進，完全不用擔心跟不上。</p></div></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" data-zh="試跳如何預約？" data-en="How do I book a trial class?">試跳如何預約？<span class="faq-icon">+</span></button>
+<div class="faq-a"><div class="faq-a-inner"><p data-zh="最快速的方式是透過 LINE 聯繫我們（點擊網站上的綠色 LINE 按鈕即可加入好友），或是撥打電話 02-2969-9257 向陳老師預約。首次試跳免費，歡迎帶孩子來體驗！" data-en="The quickest way is via LINE — click any green LINE button on this site to add us. You can also call 02-2969-9257 to book with Teacher Chen. Your first trial class is free!">最快速的方式是透過 LINE 聯繫我們（點擊網站上的綠色 LINE 按鈕即可加入好友），或是撥打電話 02-2969-9257 向陳老師預約。首次試跳免費，歡迎帶孩子來體驗！</p></div></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" data-zh="上課需要準備什麼服裝？" data-en="What should I wear to class?">上課需要準備什麼服裝？<span class="faq-icon">+</span></button>
+<div class="faq-a"><div class="faq-a-inner"><p data-zh="兒童班請穿著粉色緊身衣、粉色褲襪與芭蕾軟鞋，頭髮需紮成包頭。成人班穿著舒適的運動服即可。試跳時若還沒有裝備，穿貼身的運動服和襪子就可以囉！" data-en="Children should wear a pink leotard, pink tights, and ballet slippers, with hair in a bun. Adults can wear comfortable athletic wear. For trial classes, fitted sportswear and socks are just fine!">兒童班請穿著粉色緊身衣、粉色褲襪與芭蕾軟鞋，頭髮需紮成包頭。成人班穿著舒適的運動服即可。試跳時若還沒有裝備，穿貼身的運動服和襪子就可以囉！</p></div></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" data-zh="成人也可以學芭蕾嗎？" data-en="Can adults learn ballet too?">成人也可以學芭蕾嗎？<span class="faq-icon">+</span></button>
+<div class="faq-a"><div class="faq-a-inner"><p data-zh="絕對可以！我們的成人班學員從 20 多歲到 50 多歲都有，大家都在輕鬆愉快的氛圍中學習。芭蕾不僅能雕塑體態、改善姿勢，更是忙碌生活中最優雅的紓壓方式。什麼時候開始都不嫌晚！" data-en="Absolutely! Our adult classes welcome students from their 20s to 50s and beyond, all learning in a relaxed, encouraging atmosphere. Ballet sculpts your body, improves posture, and is the most elegant way to unwind. It's never too late to start!">絕對可以！我們的成人班學員從 20 多歲到 50 多歲都有，大家都在輕鬆愉快的氛圍中學習。芭蕾不僅能雕塑體態、改善姿勢，更是忙碌生活中最優雅的紓壓方式。什麼時候開始都不嫌晚！</p></div></div>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="rv"><div class="sl2" data-zh="聯絡我們" data-en="Contact">聯絡我們</div><h2 class="st" data-zh="與我們聯繫" data-en="Get in Touch">與我們聯繫</h2></div>
+<div class="cog rv" style="transition-delay:.2s">
+<div class="cil">
+<div class="ci"><div class="cic">📞</div><div><h4 data-zh="電話" data-en="Phone">電話</h4><p><a href="tel:02-2969-9257">02-2969-9257</a></p></div></div>
+<div class="ci"><div class="cic">💬</div><div><h4>LINE</h4><p><a href="https://lin.ee/Y4DDKji" target="_blank" data-zh="點擊加入 LINE 好友" data-en="Click to add LINE friend">點擊加入 LINE 好友</a></p></div></div>
+<div class="ci"><div class="cic">📘</div><div><h4>Facebook</h4><p><a href="https://www.facebook.com/heyingballet/?locale=zh_TW" target="_blank" data-zh="鶴英新北芭蕾舞團" data-en="He Ying New Taipei Ballet">鶴英新北芭蕾舞團</a></p></div></div>
+<div class="ci"><div class="cic">📷</div><div><h4>Instagram</h4><p><a href="https://www.instagram.com/heyingballet/" target="_blank">@heyingballet</a></p></div></div>
+</div>
+<div class="clc">
+<svg viewBox="0 0 24 24" fill="#06C755" style="width:48px;height:48px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+<h3 data-zh="加入 LINE 好友" data-en="Add LINE Friend">加入 LINE 好友</h3>
+<p data-zh="預約免費試跳、課程諮詢、最新消息，都在 LINE！" data-en="Book free trials, ask about courses, get latest news — all on LINE!">預約免費試跳、課程諮詢、最新消息，都在 LINE！</p>
+<a href="https://lin.ee/Y4DDKji" target="_blank" class="blb">
+<svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+<span data-zh="加入 LINE 立即預約" data-en="Add LINE & Book Now">加入 LINE 立即預約</span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+<div class="fc" data-zh="© 2025 鶴英新北芭蕾舞團" data-en="© 2025 He Ying New Taipei Ballet">© 2025 鶴英新北芭蕾舞團</div>
+<div class="fls">
+<a href="#about" data-zh="關於" data-en="About">關於</a>
+<a href="#courses" data-zh="課程" data-en="Courses">課程</a>
+<a href="https://www.facebook.com/heyingballet/?locale=zh_TW" target="_blank">Facebook</a>
+<a href="https://lin.ee/Y4DDKji" target="_blank" class="fln">LINE 預約</a>
+</div>
+</footer>
+
+<button class="btt" id="bt" aria-label="回到頂端">↑</button>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lightbox">
+<button class="lb-close" id="lbClose">✕</button>
+<button class="lb-nav lb-prev" id="lbPrev">‹</button>
+<button class="lb-nav lb-next" id="lbNext">›</button>
+<img src="" alt="" id="lbImg">
+</div>
+
+<script>
+// PRELOADER
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('pl').classList.add('done'),1800)});
+
+// CURSOR
+const dot=document.getElementById('cd'),ring=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function ac(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;dot.style.cssText=`left:${mx}px;top:${my}px;transform:translate(-50%,-50%)`;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ac)})();
+document.querySelectorAll('a,button,.hlc,.cc,.tc,.pcd,.rcd,.gi').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('h'));el.addEventListener('mouseleave',()=>ring.classList.remove('h'))});
+
+// GLOW ORB
+const orb=document.getElementById('go');
+document.addEventListener('mousemove',e=>{orb.style.left=(e.clientX-200)+'px';orb.style.top=(e.clientY-200)+'px'});
+
+// PARTICLES
+const cv=document.getElementById('pc'),cx=cv.getContext('2d');let ps=[];
+function rc(){cv.width=innerWidth;cv.height=innerHeight}rc();addEventListener('resize',rc);
+class Pt{constructor(){this.r()}r(){this.x=Math.random()*cv.width;this.y=Math.random()*cv.height;this.s=Math.random()*2+.5;this.sx=(Math.random()-.5)*.3;this.sy=(Math.random()-.5)*.3;this.o=Math.random()*.3+.05}u(){this.x+=this.sx;this.y+=this.sy;if(this.x<0||this.x>cv.width||this.y<0||this.y>cv.height)this.r()}d(){const t=document.documentElement.getAttribute('data-theme'),c=t==='dark'?'196,162,101':'154,125,62';cx.fillStyle=`rgba(${c},${this.o})`;cx.beginPath();cx.arc(this.x,this.y,this.s,0,Math.PI*2);cx.fill()}}
+for(let i=0;i<50;i++)ps.push(new Pt);
+(function ap(){cx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{p.u();p.d()});for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){const dx=ps[i].x-ps[j].x,dy=ps[i].y-ps[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<150){const t=document.documentElement.getAttribute('data-theme'),c=t==='dark'?'196,162,101':'154,125,62';cx.strokeStyle=`rgba(${c},${.03*(1-d/150)})`;cx.lineWidth=.5;cx.beginPath();cx.moveTo(ps[i].x,ps[i].y);cx.lineTo(ps[j].x,ps[j].y);cx.stroke()}}requestAnimationFrame(ap)})();
+
+// SCROLL & NAV
+addEventListener('scroll',()=>{document.getElementById('mn').classList.toggle('sc',scrollY>50);document.getElementById('bt').classList.toggle('vis',scrollY>600)});
+const hb=document.getElementById('hb'),nl=document.getElementById('nl');
+hb.addEventListener('click',()=>{hb.classList.toggle('act');nl.classList.toggle('open')});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hb.classList.remove('act');nl.classList.remove('open')}));
+
+// THEME & LANG
+document.getElementById('tb').addEventListener('click',function(){const h=document.documentElement,d=h.getAttribute('data-theme')==='dark';h.setAttribute('data-theme',d?'light':'dark');this.textContent=d?'☀':'☽'});
+document.getElementById('lb').addEventListener('click',function(){const h=document.documentElement,z=h.getAttribute('data-lang')==='zh',n=z?'en':'zh';h.setAttribute('data-lang',n);this.textContent=z?'中':'EN';document.querySelectorAll('[data-zh][data-en]').forEach(el=>{const t=el.getAttribute('data-'+n);if(t)el.innerHTML=t})});
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('vis')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// BACK TO TOP & SMOOTH SCROLL
+document.getElementById('bt').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)scrollTo({top:t.getBoundingClientRect().top+scrollY-80,behavior:'smooth'})})});
+
+// PERFORMANCES
+const pf=[
+{y:'2018',d:'2018.07.20',n:'世界因你而美麗',ne:'The World is Beautiful Because of You',v:'新莊文化藝術中心演藝廳',ve:'Xinzhuang Cultural Arts Center',t:'年度公演',img:'images/stage-02.jpg'},
+{y:'2015',d:'2015.06.30',n:'一步一腳印',ne:'Step by Step',v:'新北市政府文化局演藝廳',ve:'New Taipei Cultural Affairs Hall',t:'年度公演',img:'images/stage-04.jpg'},
+{y:'2014',d:'2014.09.21',n:'唐吉軻德',ne:'Don Quixote',v:'芭蕾舞劇',ve:'Full-length Ballet',t:'經典劇碼',img:'images/stage-16.jpg'},
+{y:'2013',d:'2013.10.26',n:'園丁的女兒',ne:'La Fille Mal Gardée',v:'芭蕾舞劇',ve:'Full-length Ballet',t:'經典劇碼',img:'images/stage-15.jpg'},
+{y:'2013',d:'2013.08.31',n:'芭蕾盛宴',ne:'Ballet Gala',v:'柯碧莉亞、海盜、吉賽兒選粹',ve:'Coppélia, Le Corsaire, Giselle',t:'精選匯演',img:'images/stage-18.jpg'},
+{y:'2013',d:'2013.06.28',n:'賣火柴的小瑞蓮',ne:'The Little Match Girl',v:'435藝文特區枋橋大戲院',ve:'435 Art Zone Theater',t:'原創作品',img:'images/stage-01.jpg'},
+{y:'2012',d:'2012.12.02',n:'春之芭蕾',ne:'Spring Ballet',v:'仙女們、帕吉達',ve:'Sylphides & Paquita',t:'精選匯演',img:'images/stage-07.jpg'},
+{y:'2012',d:'2012.07.20',n:'柯碧莉亞',ne:'Coppélia',v:'芭蕾舞劇',ve:'Full-length Ballet',t:'經典劇碼',img:'images/stage-08.jpg'},
+{y:'2011',d:'2011.12.11',n:'最佳創意獎',ne:'Best Creativity Award',v:'新北市藝術嘉年華',ve:'Art Carnival',t:'獲獎',img:'images/stage-10.jpg'},
+{y:'2011',d:'2011.11.25',n:'經典芭蕾II',ne:'Classical Ballet II',v:'小夜曲、卡門舞劇',ve:'Serenade & Carmen',t:'精選匯演',img:'images/stage-05.jpg'},
+{y:'2011',d:'2011.08.04',n:'火車開動了',ne:'The Train Departs',v:'新北市政府文化局演藝廳',ve:'New Taipei Cultural Affairs Hall',t:'年度公演',img:'images/stage-11.jpg'},
+{y:'2010',d:'2010.11.19',n:'經典芭蕾',ne:'Classical Ballet',v:'仙女們、帕吉達',ve:'Sylphides & Paquita',t:'精選匯演',img:'images/stage-06.jpg'},
+{y:'2010',d:'2010.01.02',n:'胡桃鉗全劇',ne:'The Nutcracker',v:'芭蕾舞劇',ve:'Full-length Ballet',t:'經典劇碼',img:'images/stage-13.jpg'},
+{y:'2009',d:'2009.08.01',n:'胡桃鉗第二幕',ne:'Nutcracker Act II',v:'西班牙舞、阿拉伯舞、中國舞',ve:'Spanish, Arabian, Chinese Dance',t:'經典劇碼',img:'images/stage-17.jpg'},
+{y:'2007',d:'2007.09.29',n:'舞動鼓聲',ne:'Dancing Drums',v:'新北市政府多功能集會堂',ve:'Assembly Hall',t:'年度公演',img:'images/stage-12.jpg'},
+{y:'2006',d:'2006.06.11',n:'古典與現代',ne:'Classical & Contemporary',v:'海盜、吉賽兒、唐吉軻德選粹',ve:'Le Corsaire, Giselle, Don Quixote',t:'精選匯演',img:'images/stage-19.jpg'},
+{y:'2004',d:'2004.08.26',n:'夏夜舞頌',ne:'Summer Night Dance',v:'新北市政府文化局演藝廳',ve:'Cultural Affairs Hall',t:'年度公演',img:'images/stage-09.jpg'},
+{y:'2004',d:'2004.08.22',n:'民族之旅',ne:'Ethnic Journey',v:'新莊文化藝術中心',ve:'Xinzhuang Arts Center',t:'年度公演',img:'images/stage-20.jpg'},
+{y:'2003',d:'2003.01.19',n:'舞韻',ne:'Dance Rhyme',v:'台北市國立台灣藝術教育館',ve:'National Arts Education Center',t:'年度公演',img:'images/stage-03.jpg'},
+{y:'2001',d:'2001.10.07',n:'『舞』法自拔',ne:'Irresistible Dance',v:'桃園文化中心 / 板橋活動中心',ve:'Taoyuan & Banqiao Centers',t:'創團首演',img:'images/stage-14.jpg'}
+];
+const pt=document.getElementById('pt');
+pf.forEach(p=>{pt.innerHTML+=`<div class="pcd"><div class="pci"><div class="pct"><img src="${p.img}" alt="${p.n}" loading="lazy"><div class="pyb">${p.y}</div></div><div class="pcb"><div><div class="pdt">${p.d}</div><div class="pnm" data-zh="${p.n}" data-en="${p.ne}">${p.n}</div><div class="pvn" data-zh="${p.v}" data-en="${p.ve}">${p.v}</div></div><div class="ptg">${p.t}</div></div></div></div>`});
+
+let isD=false,stX,scL;
+pt.addEventListener('mousedown',e=>{isD=true;pt.classList.add('grab');stX=e.pageX-pt.offsetLeft;scL=pt.scrollLeft});
+pt.addEventListener('mouseleave',()=>{isD=false;pt.classList.remove('grab')});
+pt.addEventListener('mouseup',()=>{isD=false;pt.classList.remove('grab')});
+pt.addEventListener('mousemove',e=>{if(!isD)return;e.preventDefault();pt.scrollLeft=scL-(e.pageX-pt.offsetLeft-stX)*1.5});
+pt.addEventListener('scroll',()=>{document.getElementById('pb').style.width=Math.max(5,pt.scrollLeft/(pt.scrollWidth-pt.clientWidth)*100)+'%'});
+document.getElementById('pp').addEventListener('click',()=>pt.scrollBy({left:-350,behavior:'smooth'}));
+document.getElementById('pn').addEventListener('click',()=>pt.scrollBy({left:350,behavior:'smooth'}));
+
+// COURSE TABS
+document.querySelectorAll('.course-tab').forEach(tab=>{
+tab.addEventListener('click',()=>{
+document.querySelectorAll('.course-tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.course-group').forEach(g=>g.classList.remove('active'));
+tab.classList.add('active');
+document.getElementById('cg-'+tab.dataset.tab).classList.add('active');
+document.querySelectorAll('.course-group.active .rv').forEach(el=>obs.observe(el));
+})});
+
+// GALLERY
+const galPhotos=[
+{src:'images/stage-01.jpg',cat:'stage'},{src:'images/stage-02.jpg',cat:'stage'},{src:'images/stage-03.jpg',cat:'stage'},
+{src:'images/stage-04.jpg',cat:'stage'},{src:'images/stage-05.jpg',cat:'stage'},{src:'images/stage-06.jpg',cat:'stage'},
+{src:'images/stage-07.jpg',cat:'stage'},{src:'images/stage-08.jpg',cat:'stage'},{src:'images/stage-09.jpg',cat:'stage'},
+{src:'images/stage-10.jpg',cat:'stage'},{src:'images/stage-11.jpg',cat:'stage'},{src:'images/stage-12.jpg',cat:'stage'},
+{src:'images/stage-13.jpg',cat:'stage'},{src:'images/stage-14.jpg',cat:'stage'},{src:'images/stage-15.jpg',cat:'stage'},
+{src:'images/stage-16.jpg',cat:'stage'},{src:'images/stage-17.jpg',cat:'stage'},{src:'images/stage-18.jpg',cat:'stage'},
+{src:'images/stage-19.jpg',cat:'stage'},{src:'images/stage-20.jpg',cat:'stage'},
+{src:'images/class-01.jpg',cat:'class'},{src:'images/class-02.jpg',cat:'class'},{src:'images/class-03.jpg',cat:'class'},
+{src:'images/class-04.jpg',cat:'class'},{src:'images/class-05.jpg',cat:'class'},{src:'images/class-06.jpg',cat:'class'},
+{src:'images/class-07.jpg',cat:'class'},{src:'images/class-08.jpg',cat:'class'},{src:'images/class-09.jpg',cat:'class'},
+{src:'images/class-10.jpg',cat:'class'},{src:'images/class-11.jpg',cat:'class'},{src:'images/class-12.jpg',cat:'class'},
+{src:'images/class-13.jpg',cat:'class'},
+{src:'images/event-01.jpg',cat:'event'},{src:'images/event-02.jpg',cat:'event'},{src:'images/event-03.jpg',cat:'event'},
+{src:'images/event-04.jpg',cat:'event'},{src:'images/event-05.jpg',cat:'event'},{src:'images/event-06.jpg',cat:'event'},
+{src:'images/event-07.jpg',cat:'event'},{src:'images/event-08.jpg',cat:'event'},{src:'images/event-09.jpg',cat:'event'},
+{src:'images/event-10.jpg',cat:'event'},{src:'images/event-11.jpg',cat:'event'},{src:'images/event-12.jpg',cat:'event'},
+{src:'images/event-13.jpg',cat:'event'},{src:'images/event-14.jpg',cat:'event'},
+{src:'images/studio-01.jpg',cat:'studio'},{src:'images/studio-02.jpg',cat:'studio'},{src:'images/studio-03.jpg',cat:'studio'},
+{src:'images/studio-04.jpg',cat:'studio'},{src:'images/studio-05.jpg',cat:'studio'},{src:'images/studio-06.jpg',cat:'studio'},
+{src:'images/studio-07.jpg',cat:'studio'},{src:'images/studio-08.jpg',cat:'studio'}
+];
+let currentFilter='all';
+function renderGallery(filter){
+const grid=document.getElementById('galGrid');
+grid.innerHTML='';
+const filtered=filter==='all'?galPhotos:galPhotos.filter(p=>p.cat===filter);
+filtered.forEach((p,i)=>{grid.innerHTML+=`<div class="gi" data-idx="${i}" data-src="${p.src}"><img src="${p.src}" alt="鶴英芭蕾" loading="lazy"></div>`});
+}
+renderGallery('all');
+document.querySelectorAll('.gal-tab').forEach(tab=>{
+tab.addEventListener('click',()=>{
+document.querySelectorAll('.gal-tab').forEach(t=>t.classList.remove('active'));
+tab.classList.add('active');
+currentFilter=tab.dataset.filter;
+renderGallery(currentFilter);
+})});
+
+// LIGHTBOX
+let lbPhotos=[],lbIdx=0;
+document.getElementById('galGrid').addEventListener('click',e=>{
+const gi=e.target.closest('.gi');
+if(!gi)return;
+lbPhotos=(currentFilter==='all'?galPhotos:galPhotos.filter(p=>p.cat===currentFilter));
+lbIdx=parseInt(gi.dataset.idx);
+document.getElementById('lbImg').src=lbPhotos[lbIdx].src;
+document.getElementById('lightbox').classList.add('active');
+document.body.style.overflow='hidden';
+});
+document.getElementById('lbClose').addEventListener('click',closeLb);
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')closeLb()});
+document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();lbIdx=(lbIdx-1+lbPhotos.length)%lbPhotos.length;document.getElementById('lbImg').src=lbPhotos[lbIdx].src});
+document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();lbIdx=(lbIdx+1)%lbPhotos.length;document.getElementById('lbImg').src=lbPhotos[lbIdx].src});
+document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('active'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')document.getElementById('lbPrev').click();if(e.key==='ArrowRight')document.getElementById('lbNext').click()});
+function closeLb(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow=''}
+
+// REVIEWS
+const rv=[
+{n:'林媽媽',i:'林',t:'女兒從4歲開始在這裡學，現在小三了，姿態和體態真的跟同齡小朋友差很多。老師很有耐心，每堂課都會跟家長回報進度。',d:'2025/03'},
+{n:'陳爸爸',i:'陳',t:'兒子本來很好動坐不住，學了半年之後專注力進步超多，連學校老師都問我們是不是有做什麼訓練。',d:'2025/02'},
+{n:'王小姐',i:'王',t:'成人班的氣氛超好！老師不會因為我們是大人就隨便教，每個動作都會仔細調整。上完課整個人心情很好。',d:'2025/03'},
+{n:'張媽媽',i:'張',t:'之前帶小孩去過其他舞蹈教室，但這裡的老師是真的有專業底子的，教學品質完全不同等級。',d:'2025/01'},
+{n:'李先生',i:'李',t:'陪女兒來上課，看到老師對每個小朋友都很用心，不是那種放音樂讓小孩自己跳的那種。學費也合理。',d:'2024/12'},
+{n:'黃媽媽',i:'黃',t:'小女兒參加發表會的時候我哭了，真的沒想到她可以在台上表現得那麼好。謝謝老師們的付出。',d:'2025/02'},
+{n:'吳太太',i:'吳',t:'朋友推薦來的，果然沒讓我失望。環境很乾淨，老師很親切，女兒第一堂課就說下禮拜還要來。',d:'2025/01'},
+{n:'蔡媽媽',i:'蔡',t:'學了三年了，孩子從完全沒基礎到現在可以穿硬鞋，看到她的成長真的很感動。',d:'2024/11'},
+{n:'周小姐',i:'周',t:'30歲才開始學芭蕾，本來超緊張，但老師說什麼時候開始都不嫌晚。現在每週最期待的就是上課日。',d:'2025/03'},
+{n:'許媽媽',i:'許',t:'女兒在這裡不只學到舞蹈，還學到了禮貌跟紀律。每次上課前會自己整理舞衣、綁好頭髮，很獨立。',d:'2024/10'},
+{n:'劉爸爸',i:'劉',t:'比較過好幾間舞蹈教室，這裡是唯一有正式舞團背景的。選這裡是對的。',d:'2025/02'},
+{n:'鄭媽媽',i:'鄭',t:'老師會根據每個孩子的狀況調整教學，不是一套教法用到底。我家兩個女兒程度不同，都被照顧得很好。',d:'2025/01'},
+{n:'趙小姐',i:'趙',t:'上了成人班之後，腰痠背痛的老毛病改善了，體態也變好了。同事都說我最近看起來不一樣。',d:'2024/12'},
+{n:'楊媽媽',i:'楊',t:'疫情期間老師還特別安排線上課，完全沒有因此馬虎。這種用心程度真的值得推薦。',d:'2024/09'},
+{n:'游太太',i:'游',t:'帶孩子來試跳那天，看到老師蹲下來跟小朋友說話的方式，我就決定報名了。',d:'2025/03'},
+{n:'洪媽媽',i:'洪',t:'女兒參加比賽得了獎，但更重要的是她在準備過程中學到的堅持跟不放棄。感謝老師。',d:'2024/11'},
+{n:'廖先生',i:'廖',t:'在板橋區算是很資深的舞蹈教室了，口碑不是蓋的。兩個女兒都在這學。',d:'2025/01'},
+{n:'曾媽媽',i:'曾',t:'每年的發表會都辦得很用心，不是隨便在教室表演，是真的租場地、有燈光音響，很正式。',d:'2024/10'},
+{n:'謝小姐',i:'謝',t:'40歲的芭蕾新手，老師完全沒有讓我覺得不好意思。班上還有50幾歲的姐姐，大家一起進步的感覺很好。',d:'2025/02'},
+{n:'邱媽媽',i:'邱',t:'搬家之後還是堅持跨區來上課，因為女兒說哪裡都不要只要在這裡學。',d:'2024/12'},
+{n:'簡太太',i:'簡',t:'小孩在這裡學了五年，考上舞蹈班了。真心感謝陳老師一路的指導。',d:'2025/03'},
+{n:'高媽媽',i:'高',t:'老師會跟家長溝通孩子的狀況，不是把小孩丟進去就不管。這點讓我很放心。',d:'2025/01'},
+{n:'沈小姐',i:'沈',t:'成人班學費比外面很多打著名號的教室便宜，但品質好太多了。每堂課都學到東西。',d:'2024/11'},
+{n:'賴媽媽',i:'賴',t:'女兒在幼兒律動班上得很開心，回家還會自己放音樂跳。看她這麼喜歡就值得了。',d:'2025/02'},
+{n:'范先生',i:'范',t:'陪太太來上成人班，本來在旁邊滑手機，看著看著自己也想學了。環境真的很舒服。',d:'2025/03'},
+{n:'田媽媽',i:'田',t:'第一次帶孩子去試跳不用收費這點很加分，而且不會一直推銷，讓我們自己考慮再決定。',d:'2024/10'},
+{n:'石太太',i:'石',t:'教室雖然不大但很溫馨，鏡子和地板都維護得很好。最重要的是老師的專業度。',d:'2025/01'},
+{n:'方媽媽',i:'方',t:'女兒原本很內向，在這裡學了一年多之後變得比較有自信，上台表演也不怕了。',d:'2024/12'},
+{n:'鍾小姐',i:'鍾',t:'下班後來上課是我一週最放鬆的時刻。老師的教法很清楚，就算是初學者也不會迷路。',d:'2025/02'},
+{n:'余媽媽',i:'余',t:'之前在別間學過，但老師都在滑手機。來這裡之後才知道什麼叫專業教學。差太多了。',d:'2025/03'},
+{n:'盧爸爸',i:'盧',t:'老師對小朋友嚴格但不兇，該要求的不會放水，但也會適時鼓勵。這樣的教育方式很好。',d:'2024/11'},
+{n:'姚媽媽',i:'姚',t:'已經推薦了三個朋友的小孩來這裡學了，大家都很滿意。板橋最推的芭蕾教室！',d:'2025/01'},
+{n:'孫太太',i:'孫',t:'看到老師自己也還在持續精進，參加研習進修，這種態度讓我很敬佩。',d:'2024/10'},
+{n:'康媽媽',i:'康',t:'妹妹跟著姊姊一起來學，兩個人回家會互相練習，感情也變好了。',d:'2025/02'},
+{n:'丁小姐',i:'丁',t:'工作壓力大，芭蕾課變成我的紓壓方式。老師說我的柔軟度進步很多，超開心的。',d:'2025/03'},
+{n:'何媽媽',i:'何',t:'學費透明不會亂加價，課程內容也很紮實。在這個區域算是CP值最高的。',d:'2024/12'},
+{n:'詹太太',i:'詹',t:'女兒三歲開始上律動課，老師用遊戲的方式教，小朋友都很投入，不會一直哭鬧。',d:'2025/01'},
+{n:'葉媽媽',i:'葉',t:'去年發表會的服裝和舞台好漂亮，照片拍出來像專業劇照一樣。孩子好有成就感。',d:'2024/11'},
+{n:'馮先生',i:'馮',t:'女兒堅持學了六年，中間有想放棄的時候，老師一直鼓勵她。現在她說很慶幸沒放棄。',d:'2025/02'},
+{n:'温媽媽',i:'温',t:'老師會主動告知孩子適合走哪個方向，不會為了留學生硬推課程。很真誠。',d:'2025/03'},
+{n:'龔太太',i:'龔',t:'小一開始學，現在小五了。看著她站在舞台上自信的樣子，所有接送的辛苦都值得了。',d:'2024/10'},
+{n:'章媽媽',i:'章',t:'孩子感冒請假，老師還會主動關心。這種人情味在大型連鎖教室是不可能有的。',d:'2025/01'},
+{n:'魏小姐',i:'魏',t:'第一堂成人課緊張到手心冒汗，結果老師超親切，其他學員也很友善。現在上課超自在。',d:'2024/12'},
+{n:'潘媽媽',i:'潘',t:'孩子的脊椎側彎問題，老師有特別注意她的動作，會避免讓她做不適合的姿勢。很細心。',d:'2025/02'},
+{n:'江太太',i:'江',t:'不只教跳舞，老師還會講芭蕾的歷史故事，孩子學到的是一整套的藝術素養。',d:'2025/03'},
+{n:'夏媽媽',i:'夏',t:'每次接小孩下課，她都會興奮地跟我說今天學了什麼。這種熱情持續了兩年多完全沒減。',d:'2024/11'},
+{n:'紀先生',i:'紀',t:'太太在這裡上成人班，每次回家心情都很好。說老師教的不只是動作還有對身體的覺察。',d:'2025/01'},
+{n:'閻媽媽',i:'閻',t:'試跳的時候就覺得老師的口令很清楚，動作示範也很到位。專業的就是不一樣。',d:'2024/10'},
+{n:'郭太太',i:'郭',t:'姊姊學了之後帶弟弟來體驗，結果弟弟也愛上了。男生學芭蕾老師一樣教得很好。',d:'2025/02'},
+{n:'董媽媽',i:'董',t:'搬到板橋之前就聽說這間很有名，實際來了之後覺得名不虛傳。',d:'2025/03'},
+{n:'萬小姐',i:'萬',t:'週末班的時間很方便，老師也不會因為是假日就比較隨意。品質一直都很穩定。',d:'2024/12'},
+{n:'程媽媽',i:'程',t:'女兒以前很怕上台，學了芭蕾之後連學校的表演都自告奮勇要參加。改變真的很大。',d:'2025/01'},
+{n:'傅太太',i:'傅',t:'老師說做不好沒關係但不能不認真，這句話女兒記到現在。學舞蹈也學到做人的態度。',d:'2024/11'},
+{n:'梁媽媽',i:'梁',t:'這裡每個學生的名字老師都記得，不是那種一班30個人擠在一起的大班制。',d:'2025/02'},
+{n:'尤先生',i:'尤',t:'接送小孩的時候常看到老師在課後還留下來個別指導，真的是用心在教。',d:'2025/03'},
+{n:'錢媽媽',i:'錢',t:'孩子在這裡交到很多好朋友，大家一起練習一起進步。老師營造的氛圍很正面。',d:'2024/10'},
+{n:'白太太',i:'白',t:'報名前看了Google評價才來的，果然評價都是真的。老師的專業跟用心看得出來。',d:'2025/01'},
+{n:'韓媽媽',i:'韓',t:'上了一學期的親子律動，跟女兒的感情更好了。老師設計的互動環節都好有趣。',d:'2024/12'},
+{n:'湯小姐',i:'湯',t:'以前覺得芭蕾離我很遠，來了之後發現原來每個人都可以享受舞蹈的美。',d:'2025/02'},
+{n:'宋媽媽',i:'宋',t:'孩子參加比賽的那段時間，老師額外花了好多時間陪練。這種投入不是用錢衡量的。',d:'2025/03'},
+{n:'羅太太',i:'羅',t:'交通很方便，附近也有停車場。環境整潔，更衣室也維護得很乾淨。',d:'2024/11'},
+{n:'陸媽媽',i:'陸',t:'從幼兒律動一路上到基本課，孩子成長得很明顯。每個階段老師都會跟我們討論。',d:'2025/01'},
+{n:'任小姐',i:'任',t:'同事揪團來上成人班，大家都說是一週最開心的時光。流完汗之後全身都輕鬆了。',d:'2024/10'}
+];
+const rs=document.getElementById('rs');
+[...rv,...rv].forEach(r=>{rs.innerHTML+=`<div class="rcd"><div class="rst">★★★★★</div><div class="rtx">「${r.t}」</div><div class="rau"><div class="rav">${r.i}</div><div><div class="ran">${r.n}</div><div class="rdt">${r.d}</div></div></div></div>`});
+
+// COUNTER
+const sns=document.querySelectorAll('.sn[data-count]');
+const co=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){const el=en.target,target=parseInt(el.dataset.count);let c=0;const s=Math.ceil(target/60);const tm=setInterval(()=>{c+=s;if(c>=target){c=target;clearInterval(tm)}el.textContent=c+(target===20?'+':'')},20);co.unobserve(el)}})},{threshold:.5});
+sns.forEach(el=>co.observe(el));
+// FAQ ACCORDION
+document.querySelectorAll('.faq-q').forEach(btn=>{
+btn.addEventListener('click',()=>{
+const item=btn.parentElement;
+const isActive=item.classList.contains('active');
+document.querySelectorAll('.faq-item').forEach(fi=>{fi.classList.remove('active');fi.querySelector('.faq-a').style.maxHeight=null});
+if(!isActive){item.classList.add('active');const a=item.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px'}
+})});
+</script>
+</body>
+</html>
