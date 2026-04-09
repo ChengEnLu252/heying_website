@@ -4,7 +4,7 @@
 
 成立於 2001 年，鶴英新北芭蕾舞團是立案於新北市板橋區的古典芭蕾舞團，致力於古典芭蕾教育與推廣。
 
-🌐 **網站連結：** [heyingballet.netlify.app](https://heyingballet.netlify.app)
+🌐 **網站連結：** [heyingballet](https://heying.netlify.app)
 
 ---
 
