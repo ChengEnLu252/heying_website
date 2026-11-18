@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# 允許 AI／生成式搜尋引擎爬取
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://heying.com.tw/sitemap.xml
